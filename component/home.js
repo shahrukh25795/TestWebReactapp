@@ -37,6 +37,7 @@ export default class Home extends React.Component {
             <table className="table">
                 <thead>
                     <tr>
+                        <td>Id</td>
                         <td>Photo</td>
                         <td>First Name</td>
                         <td>Last Name</td>
@@ -46,6 +47,7 @@ export default class Home extends React.Component {
                     {this.state.list.map((i,index)=>{
                         return(
                             <tr key={index}>
+                            <td>{i.id}</td>
                             <td><img src={i.avatar} height="100px" width="100px"/></td>
                             <td>{i.first_name}</td>
                             <td>{i.last_name}</td>
