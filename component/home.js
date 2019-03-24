@@ -56,7 +56,7 @@ export default class Home extends React.Component {
                     })}
                 </tbody>
             </table>
-                <button type="button" className="btn btn-success" onClick={this.handleSignout.bind(this)}>Sign out</button>
+                <button type="button" className="btn btn-info" onClick={this.handleSignout.bind(this)}>Sign out</button>
             </div>
         )
     }
