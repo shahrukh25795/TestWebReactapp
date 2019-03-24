@@ -1,4 +1,5 @@
 import React from "react";
+import '../assets/css/main.css'
 //import { BrowserRouter as Router, Route,Switch} from 'react-router-dom';
 
 export default class Home extends React.Component {
@@ -17,9 +18,9 @@ export default class Home extends React.Component {
 
     render(){
         return(
-            <div>
+            <div className="app">
                 <h1>hello shahrukh</h1>
-                <button type="button" className="btn btn info" onClick={this.handleSignout.bind(this)}>Sign out</button>
+                <button type="button" className="btn btn-success" onClick={this.handleSignout.bind(this)}>Sign out</button>
             </div>
         )
     }

@@ -29,7 +29,7 @@ export default class LogIn extends React.Component {
 
     render(){
         return(
-            <div className="col-md-4 col-md-offset-4" style={{marginTop: "100px"}}>
+            <div className="col-md-4 col-md-offset-4 app">
             <h1 style={{textAlign:"center"}}>LogIn</h1>
                 <form className='form-horizontal' onSubmit={this.handleSignIn.bind(this)}>
                     <div className="from-group">
@@ -41,7 +41,7 @@ export default class LogIn extends React.Component {
                         <input className = "form-control" id="password" type="text" onChange={(e)=>{this.setState({password: e.target.value})}}/>
                     </div>
                     <div className="from-group">
-                        <button style={{marginTop:"15px"}} className = "col-md-12 btn btn-primary" id="submit" type="submit">LogIn</button>
+                        <button className = "col-md-12 btn btn-primary login" id="submit" type="submit">LogIn</button>
                     </div>
                 </form>
             </div>
