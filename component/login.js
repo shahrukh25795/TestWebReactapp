@@ -6,10 +6,6 @@ export default class LogIn extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            list: {
-                email_data: "admin@gmail.com",
-                pass_data: "adminpass",
-            },
             email: "",
             password: "",
         }
@@ -17,14 +13,19 @@ export default class LogIn extends React.Component {
 
     handleSignIn(e){
         e.preventDefault();
-        if(this.state.list.email_data==this.state.email && this.state.list.pass_data==this.state.password){
-            localStorage.setItem("key", JSON.stringify(this.state.list));
-            //window.open("/home", "_self");
-            this.props.history.push("/home")
-        }
-        else{
-            alert("please provide valid credentials");
-        }
+        var self=this;
+        $.ajax({
+            url: "https://reqres.in/api/login",
+            type: "POST",
+            data: {
+                email: this.state.email,
+                password: this.state.password
+            },
+            success: function(response){
+                localStorage.setItem("token",response.token);
+                self.props.history.push("/home")
+            }
+        });
     }
 
     render(){
