@@ -22,7 +22,7 @@ export default class Home extends React.Component {
     getData(){
         var self=this;
         $.ajax({
-            url: "https://reqres.in/api/users?page=2",
+            url: "https://reqres.in/api/users?page=1",
             type: "GET",
             success: function(response){
                 console.log(response);

@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "cyclejs-cookie": "^0.7.4",
+    "js.cookie": "0.0.4",
     "react": "^16.8.4",
     "react-cookies": "^0.1.0",
     "react-dom": "^16.8.4",

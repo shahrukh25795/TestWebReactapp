@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 
-export const ContextHandler = React.createContext();
-export default class ProviderHandler extends Component {
+export const MyContext = React.createContext();
+export default class ProviderContext extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            access_token: "",
-            profile_data: "",
+            
         };
     }
 
@@ -25,7 +24,7 @@ export default class ProviderHandler extends Component {
             responseType: "json"
         }).then((res) => {
             if (res.data.status.code == 200) {
-                Cookies.set("token", res.data.token);
+                
             }
             return res;
         }).catch(function (error) {
@@ -72,7 +71,7 @@ export default class ProviderHandler extends Component {
     render() {
         return (
         <React.Fragment>
-            <ContextHandler.Provider
+            <MyContext.Provider
                 value={{
                     signIn: (name, password) => this.handleSignIn(name, password),
                     signOut: () => this.handleSignOut(),
@@ -80,7 +79,7 @@ export default class ProviderHandler extends Component {
                     postApi: (method, api_url, formdata) => this.postApi(method, api_url, formdata),
                 }}
             >
-            </ContextHandler.Provider>
+            </MyContext.Provider>
         </React.Fragment>);
     }
 }

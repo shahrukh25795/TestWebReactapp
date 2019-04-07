@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { Component } from "react";
+import Cookie from "js.cookie"
 //import { BrowserRouter as Router, Route,Switch} from 'react-router-dom';
 
 export default class LogIn extends React.Component {
@@ -13,6 +13,13 @@ export default class LogIn extends React.Component {
 
     handleSignIn(e){
         e.preventDefault();
+        // this.props.handleSignIn(this.state.email,this.state.password).then((res) => {
+        //     console.log(res)
+        //     if (res.data.status.code == 200) {
+        //         localStorage.setItem("current_token", response.data.token);
+        //         this.props.history.push("/home")
+        //     }
+        // })
         var self=this;
         $.ajax({
             url: "https://reqres.in/api/login",
@@ -22,7 +29,7 @@ export default class LogIn extends React.Component {
                 password: this.state.password
             },
             success: function(response){
-                localStorage.setItem("token",response.token);
+                Cookie.set("token",response.token);
                 self.props.history.push("/home")
             }
         });
@@ -35,11 +42,11 @@ export default class LogIn extends React.Component {
                 <form className='form-horizontal' onSubmit={this.handleSignIn.bind(this)}>
                     <div className="from-group">
                         <label className="control-label" htmlFor="email">Email</label>
-                        <input className = "form-control" id="email" type="email" onChange={(e)=>{this.setState({email: e.target.value})}}/>
+                        <input className = "form-control" id="email" type="email" onChange={(e)=>{this.setState({email: e.target.value})}} required/>
                     </div>
                     <div className="from-group">
                         <label className="control-label" htmlFor="password">Password</label>
-                        <input className = "form-control" id="password" type="text" onChange={(e)=>{this.setState({password: e.target.value})}}/>
+                        <input className = "form-control" id="password" type="text" onChange={(e)=>{this.setState({password: e.target.value})}} required/>
                     </div>
                     <div className="from-group">
                         <button className = "col-md-12 btn btn-primary login" id="submit" type="submit">LogIn</button>
