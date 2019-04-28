@@ -30,7 +30,7 @@ export default class LogIn extends React.Component {
             },
             success: function(response){
                 Cookie.set("token",response.token);
-                self.props.history.push("/home")
+                self.props.history.push("/social_auth")
             }
         });
     }
