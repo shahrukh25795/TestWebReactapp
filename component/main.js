@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-do
 import LogIn from "./login";
 import Home from "./home";
 import Cookie from "js.cookie"
-import ProviderContext, { MyContext } from "./context";
 import SocialAuth from "./social_auth";
 
 export default class Main extends React.Component {
@@ -15,20 +14,6 @@ export default class Main extends React.Component {
     }
     render(){
         return(
-        //     <ProviderContext>
-        //     <MyContext.Consumer>
-        //         {(context) => (
-        //             <Router>
-        //                 <Switch location={location}>
-        //                     <React.Fragment>
-        //                         <Route exact path="/" component={props => (Cookie.get("token")!== null) ? <Redirect to="/home"/> : <LogIn {...props}/>}/>
-        //                         <Route exact path="/home" component={props => (Cookie.get("token")== null) ? <Redirect to="/"/> : <Home {...props}/>}/>
-        //                 </React.Fragment>
-        //                 </Switch>
-        //             </Router>
-        //         )}
-        //     </MyContext.Consumer>
-        // </ProviderContext>
                 <Router>
                     <Switch>
                         <Route exact path="/" component={props => (Cookie.get("token")!== null) ? <Redirect to="/social_auth"/> : <LogIn {...props}/>}/>

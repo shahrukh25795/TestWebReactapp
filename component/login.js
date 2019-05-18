@@ -13,13 +13,6 @@ export default class LogIn extends React.Component {
 
     handleSignIn(e){
         e.preventDefault();
-        // this.props.handleSignIn(this.state.email,this.state.password).then((res) => {
-        //     console.log(res)
-        //     if (res.data.status.code == 200) {
-        //         localStorage.setItem("current_token", response.data.token);
-        //         this.props.history.push("/home")
-        //     }
-        // })
         var self=this;
         $.ajax({
             url: "https://reqres.in/api/login",

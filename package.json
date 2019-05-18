@@ -27,6 +27,7 @@
     "react": "^16.8.4",
     "react-cookies": "^0.1.0",
     "react-dom": "^16.8.4",
+    "react-facebook-account-kit": "^0.1.5",
     "react-facebook-login": "^4.1.1",
     "react-google-login": "^5.0.4",
     "react-router": "^4.3.1",
